@@ -1,45 +1,53 @@
-import React from 'react'
-import "./style.css"
-import Logo from "../../assets/images/olxlogo.png"
-import {AiOutlineSearch} from 'react-icons/ai'
+import React from 'react';
 
-const index = () => {
+import './style.css';
+import OlxLogo from '../../assets/OlxLogo';
+import Search from '../../assets/Search';
+import Arrow from '../../assets/Arrow';
+import SellButton from '../../assets/SellButton';
+import SellButtonPlus from '../../assets/SellButtonPlus';
+function Header() {
   return (
-    <div className='container'>
-      
-      <div>
-        <img src={Logo} className='logo'/>
-      </div>
-
-      <div>
-        <label>
-        <AiOutlineSearch/>
-          <input
-            type="text"
-          />
-        </label>
-      </div>
-
-      <div>
-        <label>
-          <input
-            type="text"
-            placeholder='Find Cars, Mobile Phone and more...'
+    <div className="headerParentDiv">
+      <div className="headerChildDiv">
+        <div className="brandName">
+          <OlxLogo></OlxLogo>
+        </div>
+        <div className="placeSearch">
+          <Search></Search>
+          <input type="text" />
+          <Arrow></Arrow>
+        </div>
+        <div className="productSearch">
+          <div className="input">
+            <input
+              type="text"
+              placeholder="Find car,mobile phone and more..."
             />
-            <AiOutlineSearch/>
-        </label>
-      </div>
+          </div>
+          <div className="searchAction">
+            <Search color="#ffffff"></Search>
+          </div>
+        </div>
+        <div className="language">
+          <span> ENGLISH </span>
+          <Arrow></Arrow>
+        </div>
+        <div className="loginPage">
+          <span>Login</span>
+          <hr />
+        </div>
 
-      <div>
-        Login
+        <div className="sellMenu">
+          <SellButton></SellButton>
+          <div className="sellMenuContent">
+            <SellButtonPlus></SellButtonPlus>
+            <span>SELL</span>
+          </div>
+        </div>
       </div>
-
-      <div>
-        Sell
-      </div>
-
     </div>
-  )
+  );
 }
 
-export default index
+export default Header;
