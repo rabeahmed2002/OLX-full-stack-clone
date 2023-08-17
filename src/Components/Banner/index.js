@@ -2,6 +2,8 @@ import React from 'react';
 
 import './style.css';
 import Arrow from '../../assets/Arrow'
+import BannerPic from "../../assets/banner.jpeg"
+
 function Banner() {
   return (
     <div className="bannerParentDiv">
@@ -23,7 +25,7 @@ function Banner() {
         </div>
         <div className="banner">
           <img
-            src="../../../assets/images/banner.jpg"
+            src={BannerPic}
             alt=""
           />
         </div>

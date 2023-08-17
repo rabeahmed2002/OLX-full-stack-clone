@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Heart from '../../assets/Heart';
+import pic1 from "../../assets/iphone.jpg"
 import './style.css';
 
 function Posts() {
@@ -20,12 +21,11 @@ function Posts() {
               <Heart></Heart>
             </div>
             <div className="image">
-              <img src="../../../Images/R15V3.jpg" alt="" />
+              <img src={pic1} alt="" />
             </div>
             <div className="content">
-              <p className="rate">&#x20B9; 250000</p>
-              <span className="kilometer">Two Wheeler</span>
-              <p className="name"> YAMAHA R15V3</p>
+              <p className="rate">Rs. 250000</p>
+              <span className="name">iPhone 14 Pro Max</span>
             </div>
             <div className="date">
               <span>Tue May 04 2021</span>
@@ -43,15 +43,15 @@ function Posts() {
               <Heart></Heart>
             </div>
             <div className="image">
-              <img src="../../../Images/R15V3.jpg" alt="" />
+              <img src={pic1} alt="" />
             </div>
             <div className="content">
-              <p className="rate">&#x20B9; 250000</p>
-              <span className="kilometer">Two Wheeler</span>
-              <p className="name"> YAMAHA R15V3</p>
+              <p className="rate">Rs. 250000</p>
+              <span className="name">iPhone 14 Pro Max</span>
+              {/* <p className="name"> YAMAHA R15V3</p> */}
             </div>
             <div className="date">
-              <span>10/5/2021</span>
+              <span>10/5/2023</span>
             </div>
           </div>
         </div>
