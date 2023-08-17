@@ -1,9 +1,10 @@
 import React from 'react'
+import Navbar from "../../Components/Navbar"
 
 const index = () => {
   return (
     <div>
-      This is the main dashboard page
+      <Navbar/>
     </div>
   )
 }
