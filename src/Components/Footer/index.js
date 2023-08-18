@@ -48,7 +48,7 @@ function Footer() {
       </div>
       <div className="footer">
         <p></p>
-        <p>Free Classifieds in Pakistan. ©  © 2006-2023 OLX</p>
+        <p>Free Classifieds in Pakistan. © 2006-2023 OLX</p>
       </div>
     </div>
   );
