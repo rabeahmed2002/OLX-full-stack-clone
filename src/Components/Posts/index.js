@@ -12,11 +12,11 @@ function Posts() {
 
   //making a function to fetch data through API
   const fetchData = async() => { 
-    const response = await fetch("https://fakestoreapi.com/products?limit=50")
+    const response = await fetch("https://api.escuelajs.co/api/v1/categories")
     const data = await response.json()
 
     setProducts(data);
-    console.table(data);
+    console.log(data);
   }
 
    useEffect(() => {
@@ -50,7 +50,7 @@ function Posts() {
             </div>
             <div className="content">
               <p className="rate">{item.price}</p>
-              <span className="name">{item.title}</span>
+              <span className="name">{item.name}</span>
             </div>
             <div className="date">
               <span>Tue May 04 2021</span>

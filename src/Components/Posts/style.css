@@ -23,12 +23,14 @@
   
   .recommendations .cards {
     display: flex;
+
   }
   
   .moreView .cards {
     white-space: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
+    
   }
   
   .card {
@@ -51,6 +53,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
   
   .card .image img {
@@ -74,7 +77,7 @@
   }
   .card .date {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     font-size: small;
   }
   
