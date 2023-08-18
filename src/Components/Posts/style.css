@@ -87,3 +87,14 @@
     color: #002f34;
   }
   
+
+.dashboard {
+  text-align: center;
+  padding: 20px;
+}
+
+.ad-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -1,0 +1,18 @@
+/* AdItem.css */
+.ad-item {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .ad-item h3 {
+    margin-top: 0;
+  }
+  
+  .ad-item p {
+    margin-bottom: 0;
+  }
+  
