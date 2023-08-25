@@ -5,6 +5,9 @@ import Posts from "../../Components/Posts"
 import Footer from "../../Components/Footer"
 
 const index = () => {
+
+
+  
   return (
     <div>
       <Navbar/>
