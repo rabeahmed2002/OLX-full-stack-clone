@@ -7,7 +7,7 @@ import Signup from "./Pages/Signup"
 
 function App() {
 
-  const [screen, setScreen]=useState('signup')
+  const [screen, setScreen]=useState('login')
 
 
 

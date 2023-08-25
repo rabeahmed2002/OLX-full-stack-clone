@@ -38,7 +38,7 @@ function Signup() {
       <h1>Signup page</h1>
       <div className="loginParentDiv">
         <img src={Logo}></img>
-        <form onSubmit={handleSubmit}>
+        <form>
         <label htmlFor="username">Username</label>
           <br />
           <input
@@ -70,7 +70,8 @@ function Signup() {
           />
           <br />
           <br />
-          <button onClick={signupUser}>Signup</button>
+          <button onClick={handleSubmit}>Signup</button>
+          {error && <p className="error-message">{error}</p>}
         </form>
         <p>Already have an account? <a>login here</a></p>
       </div>

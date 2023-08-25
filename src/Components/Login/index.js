@@ -1,38 +1,66 @@
-import React from 'react';
-
-import Logo from "../../assets/olxlogo.png"
-import Signup from "../Signup"
+import React, { useState } from 'react';
+import Logo from "../../assets/olxlogo.png";
 import './style.css';
+import { loginUser } from "../../config/firebase"; // Update the import path to match your firebase.js configuration
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await loginUser(email, password);
+      // If successful, you can redirect the user or perform other actions
+      console.log('User logged in successfully');
+    } catch (error) {
+      setError(error.message);
+      console.log('Login error:', error);
+    }
+  };
+
   return (
     <div>
       <h1>Login page</h1>
       <div className="loginParentDiv">
-        <img src={Logo}></img>
+        <img src={Logo} alt="Logo" />
         <form>
-          <label htmlFor="fname">Email</label>
+          <label htmlFor="email">Email</label>
           <br />
           <input
             className="input"
             type="email"
-            id="fname"
+            id="email"
             name="email"
+            value={email}
+            onChange={handleEmailChange}
           />
           <br />
-          <label htmlFor="lname">Password</label>
+          <label htmlFor="password">Password</label>
           <br />
           <input
             className="input"
             type="password"
-            id="lname"
+            id="password"
             name="password"
+            value={password}
+            onChange={handlePasswordChange}
           />
           <br />
           <br />
-          <button>Login</button>
+          <button onClick={handleSubmit}>Login</button>
+          {error && <p className="error-message">{error}</p>}
         </form>
-        <p>Dont Have an account? <a href={Signup}>sign up here</a></p>
       </div>
     </div>
   );

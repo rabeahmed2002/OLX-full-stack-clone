@@ -23,17 +23,19 @@ const auth=getAuth(app)
 
 
 const signupUser = (email, password, name) => {
-
-  createUserWithEmailAndPassword(auth, email, password, name)
+  return createUserWithEmailAndPassword(auth, email, password, name)
     .then((userCredential) => {
       const user = userCredential.user;
       console.log('User created:', user);
+      return null; // No error
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      return errorMessage; // Return the error message
     });
 };
+
 
 const loginUser = (email, password) => {
 
