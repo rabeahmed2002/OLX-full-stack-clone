@@ -6,7 +6,7 @@ import Search from '../../assets/Search';
 import Arrow from '../../assets/Arrow';
 import SellButton from '../../assets/SellButton';
 import SellButtonPlus from '../../assets/SellButtonPlus';
-function Header() {
+function Header(props) {
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -37,6 +37,10 @@ function Header() {
           <span>Login</span>
           <hr />
         </div>
+        {/* <div className="loginPage">
+          <span onClick={()=>{props.setScreen=('login')}}>Logout</span>
+          <hr />
+        </div> */}
 
         <div className="sellMenu">
           <SellButton></SellButton>

@@ -7,6 +7,7 @@ import {signupUser} from "../../config/firebase"
 
 function Signup(props) {
 
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,10 +29,9 @@ function Signup(props) {
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      console.log(props.screen);
-      // props.setScreen('login')
-  
       signupUser(email, password, name)
+
+      props.setScreen('home')
     };
   
 

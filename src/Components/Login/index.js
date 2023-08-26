@@ -3,7 +3,9 @@ import Logo from "../../assets/olxlogo.png";
 import './style.css';
 import { loginUser } from "../../config/firebase"; // Update the import path to match your firebase.js configuration
 
-function Login() {
+function Login(props) {
+
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -18,11 +20,12 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    props.setScreen('home')
 
     try {
       await loginUser(email, password);
       // If successful, you can redirect the user or perform other actions
-      console.log('User logged in successfully');
+      alert('Welcome to Dashboard');
     } catch (error) {
       setError(error.message);
       console.log('Login error:', error);

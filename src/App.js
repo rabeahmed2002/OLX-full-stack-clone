@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './App.css';
 
 import Home from "./Pages/Home"
-import Login from "./Pages/Login"
-import Signup from "./Pages/Signup"
+import Login from "./Components/Login"
+import Signup from './Components/Signup';
 
 function App() {
 
@@ -13,14 +13,12 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Home/> */}
-      {/* <Login/> */}
 
       {screen === "login" &&
           <Login setScreen={setScreen} />}
 
         {screen === "home" &&
-          <Home />}
+          <Home setScreen={setScreen} />}
 
         {screen === "signup" &&
           <Signup setScreen={setScreen} />}
