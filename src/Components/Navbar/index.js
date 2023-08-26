@@ -6,7 +6,18 @@ import Search from '../../assets/Search';
 import Arrow from '../../assets/Arrow';
 import SellButton from '../../assets/SellButton';
 import SellButtonPlus from '../../assets/SellButtonPlus';
+
+
+
+
 function Header(props) {
+
+  console.log("navbar prop", props);
+
+  const logout=()=>{
+    props.setScreen=('login')
+  }
+
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
@@ -37,10 +48,10 @@ function Header(props) {
           <span>Login</span>
           <hr />
         </div>
-        {/* <div className="loginPage">
-          <span onClick={()=>{props.setScreen=('login')}}>Logout</span>
+        <div className="loginPage">
+          <span onClick={logout}>Logout</span>
           <hr />
-        </div> */}
+        </div>
 
         <div className="sellMenu">
           <SellButton></SellButton>

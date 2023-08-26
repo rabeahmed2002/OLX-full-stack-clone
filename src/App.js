@@ -7,9 +7,7 @@ import Signup from './Components/Signup';
 
 function App() {
 
-  const [screen, setScreen]=useState('signup')
-
-
+  const [screen, setScreen]=useState('home')
 
   return (
     <div className="App">

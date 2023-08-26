@@ -4,13 +4,11 @@ import Banner from "../../Components/Banner"
 import Posts from "../../Components/Posts"
 import Footer from "../../Components/Footer"
 
-const index = () => {
-
-
+const Home = (props) => {
   
   return (
     <div>
-      <Navbar/>
+      <Navbar setScreen={props.setScreen}/>
       <Banner/>
       <Posts/>
       <Footer/>
@@ -18,4 +16,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Home
