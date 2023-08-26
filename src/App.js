@@ -4,6 +4,7 @@ import './App.css';
 import Home from "./Pages/Home"
 import Login from "./Components/Login"
 import Signup from './Components/Signup';
+import Navbar from "./Components/Navbar"
 
 function App() {
 
@@ -12,14 +13,18 @@ function App() {
   return (
     <div className="App">
 
+      {screen !== 'login' && 
+          <Navbar setScreen={setScreen}/>}
+
       {screen === "login" &&
-          <Login setScreen={setScreen} />}
+          <Login setScreen={setScreen}/>}
 
         {screen === "home" &&
-          <Home setScreen={setScreen} />}
+          <Home setScreen={setScreen}/>}
 
         {screen === "signup" &&
-          <Signup setScreen={setScreen} />}
+          <Signup setScreen={setScreen}/>}
+
 
     </div>
   );

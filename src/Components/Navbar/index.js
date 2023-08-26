@@ -12,11 +12,6 @@ import SellButtonPlus from '../../assets/SellButtonPlus';
 
 function Header(props) {
 
-  console.log("navbar prop", props);
-
-  const logout=()=>{
-    props.setScreen=('login')
-  }
 
   return (
     <div className="headerParentDiv">
@@ -49,7 +44,7 @@ function Header(props) {
           <hr />
         </div>
         <div className="loginPage">
-          <span onClick={logout}>Logout</span>
+          <span onClick={() => props.setScreen('login')}>Logout</span>
           <hr />
         </div>
 

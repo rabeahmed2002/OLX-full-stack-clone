@@ -20,17 +20,18 @@ function Login(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    props.setScreen('home')
-
+  
     try {
       await loginUser(email, password);
-      // If successful, you can redirect the user or perform other actions
+      // If successful, navigate back to Home
+      props.setScreen('home');
       alert('Welcome to Dashboard');
     } catch (error) {
       setError(error.message);
       console.log('Login error:', error);
     }
   };
+  
 
   return (
     <div>

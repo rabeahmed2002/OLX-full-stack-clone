@@ -19,10 +19,7 @@ const app = initializeApp(firebaseConfig);
 
 const auth=getAuth(app)
 
-
-
-
-const signupUser = (email, password, name) => {
+const signupUser = async (email, password, name) => {
   return createUserWithEmailAndPassword(auth, email, password, name)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -36,9 +33,7 @@ const signupUser = (email, password, name) => {
     });
 };
 
-
 const loginUser = (email, password) => {
-
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
