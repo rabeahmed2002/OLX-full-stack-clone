@@ -42,19 +42,21 @@ function Signup(props) {
       <div className="loginParentDiv">
         <img src={Logo}></img>
         <form>
-        <label htmlFor="username">Username</label>
+          <br />
+          <label htmlFor="email">Username</label>
           <br />
           <input
+            className="input"
             type="text"
             id="name"
             value={name}
             onChange={handleNameChange}
-            required
           />
           <br/>
           <label htmlFor="fname">Email</label>
           <br />
           <input
+            className="input"
             type="email"
             id="email"
             value={email}
@@ -65,6 +67,7 @@ function Signup(props) {
           <label htmlFor="lname">Password</label>
           <br />
           <input
+            className="input"
             type="password"
             id="password"
             value={password}

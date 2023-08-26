@@ -74,6 +74,7 @@ function Login(props) {
           <br />
           <br />
           <button onClick={handleSubmit}>Login</button>
+          <p>Dont have an account? <a onClick={()=>{props.setScreen('signup')}}>signup here</a></p>
           {error && <p className="error-message">{error}</p>}
         </form>
       </div>
