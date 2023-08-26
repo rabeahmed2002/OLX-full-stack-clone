@@ -31,6 +31,17 @@ function Login(props) {
       console.log('Login error:', error);
     }
   };
+
+  // async function handleSubmit(){
+  //   const loginUserRes=await loginUser(email, password)
+
+  //   if (loginUserRes.status===200) {
+  //     alert("Login succcessful")
+  //     props.setScreen('home')
+  //   } else {
+  //     alert("Reenter your credentials")
+  //   }
+  // }
   
 
   return (

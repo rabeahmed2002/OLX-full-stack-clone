@@ -4,7 +4,6 @@ import './App.css';
 import Home from "./Pages/Home"
 import Login from "./Components/Login"
 import Signup from './Components/Signup';
-import Navbar from "./Components/Navbar"
 
 function App() {
 

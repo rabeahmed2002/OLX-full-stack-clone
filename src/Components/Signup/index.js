@@ -76,7 +76,7 @@ function Signup(props) {
           <button onClick={handleSubmit}>Signup</button>
           {error && <p className="error-message">{error}</p>}
         </form>
-        {/* <p>Already have an account? <a>login here</a></p> */}
+        <p>Already have an account? <a onClick={()=>{props.setScreen('login')}}>login here</a></p>
 
         {/* <p>
         Already have an account?{' '}
