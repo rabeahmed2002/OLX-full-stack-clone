@@ -8,14 +8,10 @@ import Navbar from "./Components/Navbar"
 
 function App() {
 
-  const [screen, setScreen]=useState('home')
+  const [screen, setScreen]=useState('signup')
 
   return (
     <div className="App">
-
-      {screen !== 'login' && 
-          <Navbar setScreen={setScreen}/>}
-
       {screen === "login" &&
           <Login setScreen={setScreen}/>}
 

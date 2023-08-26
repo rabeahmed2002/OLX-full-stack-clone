@@ -4,11 +4,11 @@ import Banner from "../../Components/Banner"
 import Posts from "../../Components/Posts"
 import Footer from "../../Components/Footer"
 
-const Home = () => {
+const Home = (props) => {
   
   return (
     <div>
-      <Navbar/>
+      <Navbar setScreen={props.setScreen}/>
       <Banner/>
       <Posts/>
       <Footer/>

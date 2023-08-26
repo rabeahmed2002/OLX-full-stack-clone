@@ -33,21 +33,36 @@ const signupUser = async (email, password, name) => {
     });
 };
 
-const loginUser = (email, password) => {
+const loginUser = async (email, password) => {
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log('User logged in:', user);
-        alert("Successfully signed in")
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(error.message);
-        alert(error.message)
-      });
-  ;
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       const user = userCredential.user;
+  //       console.log('User logged in:', user);
+  //       alert("Successfully signed in")
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       console.log(error.message);
+  //       alert(error.message)
+  //     });
+  // ;
+
+  try {
+    const res= await signInWithEmailAndPassword(email, password)
+    return{
+      status:200,
+      message:"Success",
+      data: res.user
+    }
+  } catch (error) {
+    return{
+      status:500,
+      message: error.message,
+      data: null
+    }
+  }
 };
 
 export {
