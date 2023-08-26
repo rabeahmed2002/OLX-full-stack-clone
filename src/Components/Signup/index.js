@@ -5,7 +5,7 @@ import Login from "../Login"
 import './style.css';
 import {signupUser} from "../../config/firebase"
 
-function Signup() {
+function Signup(props) {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -27,6 +27,9 @@ function Signup() {
 
     const handleSubmit = (e) => {
       e.preventDefault();
+
+      console.log(props.screen);
+      // props.setScreen('login')
   
       signupUser(email, password, name)
     };
@@ -73,7 +76,16 @@ function Signup() {
           <button onClick={handleSubmit}>Signup</button>
           {error && <p className="error-message">{error}</p>}
         </form>
-        <p>Already have an account? <a>login here</a></p>
+        {/* <p>Already have an account? <a>login here</a></p> */}
+
+        {/* <p>
+        Already have an account?{' '}
+          <a href="#" onClick={() => props.setScreen('login')}>
+            Login here
+          </a>
+      </p> */}
+
+
       </div>
     </div>
   );

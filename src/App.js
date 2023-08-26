@@ -7,7 +7,7 @@ import Signup from "./Pages/Signup"
 
 function App() {
 
-  const [screen, setScreen]=useState('login')
+  const [screen, setScreen]=useState('signup')
 
 
 
@@ -20,10 +20,10 @@ function App() {
           <Login setScreen={setScreen} />}
 
         {screen === "home" &&
-          < Home />}
+          <Home />}
 
         {screen === "signup" &&
-          < Signup setScreen={setScreen} />}
+          <Signup setScreen={setScreen} />}
 
     </div>
   );
