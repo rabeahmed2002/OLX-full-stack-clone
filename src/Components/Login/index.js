@@ -25,12 +25,18 @@ function Login(props) {
       await loginUser(email, password);
       // If successful, navigate back to Home
       props.setScreen('home');
-      alert('Welcome to Dashboard');
+      console.log('Welcome to Dashboard');
+      props.setFlag(true)
     } catch (error) {
       setError(error.message);
       console.log('Login error:', error);
     }
   };
+
+  const logout=()=>{
+    props.setScreen('signup')
+    props.setFlag(false)
+  }
 
   // async function handleSubmit(){
   //   const loginUserRes=await loginUser(email, password)
@@ -73,6 +79,12 @@ function Login(props) {
           />
           <br />
           <br />
+
+         {props.flag ? 
+          <button>Login</button> 
+          :
+          <button>Logout</button>}
+
           <button onClick={handleSubmit}>Login</button>
           <p>Dont have an account? <a onClick={()=>{props.setScreen('signup')}}>signup here</a></p>
           {error && <p className="error-message">{error}</p>}
