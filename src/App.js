@@ -7,13 +7,12 @@ import Signup from './Components/Signup';
 
 function App() {
 
-  const [screen, setScreen]=useState('home')
-  const [flag, setFlag]=useState(false)
+  const [screen, setScreen]=useState('login')
 
   return (
     <div className="App">
       {screen === "login" &&
-          <Login setScreen={setScreen} setFlag={setFlag}/>}
+          <Login setScreen={setScreen}/>}
 
         {screen === "home" &&
           <Home setScreen={setScreen}/>}

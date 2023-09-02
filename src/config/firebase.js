@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,14 +18,21 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const storage=getFirestore(app)
+const db=getFirestore(app)
 const auth=getAuth(app)
 
 const signupUser = async (email, password, name) => {
-  return createUserWithEmailAndPassword(auth, email, password, name)
-    .then((userCredential) => {
+  const res=await createUserWithEmailAndPassword(auth, email, password, name)
+    .try((userCredential) => {
       const user = userCredential.user;
-      console.log('User created:', user);
+
+      const docRef=  addDoc(collection(db, "users"), {
+        name: name,
+        email: email
+      })
+
+      // console.log('User created:', user);
+      console.log("Document written with ID: ", docRef.id);
       return null; // No error
     })
     .catch((error) => {
@@ -49,21 +56,6 @@ const loginUser = async (email, password) => {
       });
   ;
 
-  // try {
-  //   const res= await signInWithEmailAndPassword(email, password)
-  //   console.log("login successful");
-  //   return{
-  //     status:200,
-  //     message:"Success",
-  //     data: res.user
-  //   }
-  // } catch (error) {
-  //   return{
-  //     status:500,
-  //     message: error.message,
-  //     data: null
-  //   }
-  // }
 };
 
 export {

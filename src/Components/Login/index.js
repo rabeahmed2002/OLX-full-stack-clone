@@ -80,10 +80,6 @@ function Login(props) {
           <br />
           <br />
 
-         {props.flag ? 
-          <button>Login</button> 
-          :
-          <button>Logout</button>}
 
           <button onClick={handleSubmit}>Login</button>
           <p>Dont have an account? <a onClick={()=>{props.setScreen('signup')}}>signup here</a></p>
