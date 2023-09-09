@@ -22,25 +22,25 @@ const db=getFirestore(app)
 const auth=getAuth(app)
 
 const signupUser = async (email, password, name) => {
-  const res=await createUserWithEmailAndPassword(auth, email, password, name)
-    .try((userCredential) => {
-      const user = userCredential.user;
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-      const docRef=  addDoc(collection(db, "users"), {
-        name: name,
-        email: email
-      })
-
-      // console.log('User created:', user);
-      console.log("Document written with ID: ", docRef.id);
-      return null; // No error
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return errorMessage; // Return the error message
+    const docRef = await addDoc(collection(db, "users"), {
+      email: email,
+      password: password,
+      name: name,
     });
+
+    console.log('User created:', user);
+    console.log("Document written with ID: ", docRef.id);
+    return null; // No error
+  } catch (error) {
+    console.log('Error signing up and adding document', error);
+    return error.message; // Return the error message
+  }
 };
+
 
 const loginUser = async (email, password) => {
 
