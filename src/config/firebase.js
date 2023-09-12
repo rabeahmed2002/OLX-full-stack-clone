@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
-import { getFirestore, addDoc, collection } from "firebase/firestore";
+import { getFirestore, addDoc, collection, getDocs, setDoc, doc, getDoc } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,18 +23,21 @@ const auth=getAuth(app)
 
 const signupUser = async (email, password, name) => {
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    const uid = res.user.uid
 
-    const docRef = await addDoc(collection(db, "users"), {
+    const docRef = await setDoc(doc(db, "users", uid), {
       email: email,
       password: password,
       name: name,
     });
 
-    console.log('User created:', user);
     console.log("Document written with ID: ", docRef.id);
-    return null; // No error
+    return {
+      status: 200,
+      message: "Success",
+      data: res.user
+  }
   } catch (error) {
     console.log('Error signing up and adding document', error);
     return error.message; // Return the error message
@@ -44,21 +47,49 @@ const signupUser = async (email, password, name) => {
 
 const loginUser = async (email, password) => {
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log('User logged in: ', user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(error.message);
-      });
-  ;
+  try {
+    const res=await signInWithEmailAndPassword(auth, email, password)
+
+    return {
+      status: 200,
+      message: "Success",
+      data: res.user
+  }
+  }     catch (error) {
+    console.log(error.message)
+    return {
+        status: 500,
+        message: error.message,
+        data: null
+    }
+}
 
 };
 
+const getUserData = async (uid) => {
+  try {
+      const docRef = doc(db, "users", uid)
+      const res = await getDoc(docRef)
+      const data = res.data()
+      console.log("firebase getUserData", data)
+      return {
+          status: 200,
+          message: "Success",
+          data: data
+      }
+  }
+  catch (error) {
+      console.log(error.message)
+      return {
+          status: 500,
+          message: error.message,
+          data: null
+      }
+  }
+}
+
 export {
   signupUser,
-  loginUser
+  loginUser,
+  auth
 }

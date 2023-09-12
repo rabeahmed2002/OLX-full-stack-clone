@@ -8,13 +8,16 @@ import {signupUser} from "../../config/firebase"
 function Signup(props) {
 
 
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('')
+
+
   const [error, setError] = useState('');
 
   const handleNameChange = (e) => {
-      setName(e.target.value);
+      setUsername(e.target.value);
     };
   
     const handleEmailChange = (e) => {
@@ -26,13 +29,18 @@ function Signup(props) {
     };
 
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-
-      signupUser(email, password, name)
-
-      props.setScreen('home')
-    };
+    const handleSubmit = async () => {
+      //Firebase ke mehtod klo call kerwana hai
+      const signupUserRes = await signupUser(email, password, phoneNumber, username)
+      console.log("signupUserRes ", signupUserRes)
+      if (signupUserRes.status === 200) {
+          alert(signupUserRes.message)
+          // props.setScreen("dashboard")
+      }
+      else {
+          alert(signupUserRes.message)
+      }
+  }
   
 
 
@@ -49,7 +57,7 @@ function Signup(props) {
             className="input"
             type="text"
             id="name"
-            value={name}
+            value={username}
             onChange={handleNameChange}
           />
           <br/>
